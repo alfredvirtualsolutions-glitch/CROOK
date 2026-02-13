@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import DashboardLayout from '../components/DashboardLayout';
 import { 
@@ -23,7 +24,8 @@ export default function Templates() {
   const generateWithAI = async () => {
     setIsGenerating(true);
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
+      // Fix: Initialize GoogleGenAI with process.env.API_KEY directly as per requirements
+      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       const response = await ai.models.generateContent({
         model: 'gemini-3-flash-preview',
         contents: "Generate a realistic, short, and professional business email template for email warm-up purposes. It should look like a genuine human inquiry. Return as JSON with 'subject' and 'body' fields.",

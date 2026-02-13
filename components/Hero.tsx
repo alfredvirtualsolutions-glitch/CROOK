@@ -25,6 +25,7 @@ const allAchievements: Achievement[] = [
   { id: '2', title: 'Absolute Trust', description: 'Maintain 95+ health score for 7 days.', icon: 'target', color: 'green', unlocked: true },
   { id: '3', title: 'Hyper Scaling', description: 'Send over 10,000 warm-up interactions.', icon: 'zap', color: 'yellow', unlocked: false, progress: 6420, maxProgress: 10000 },
   { id: '4', title: 'Elite Vanguard', description: 'Reached the top 1% of sender reputations.', icon: 'crown', color: 'purple', unlocked: true },
+  { id: '5', title: 'Quantum Leap', description: 'Send over 20,000 warm-up interactions.', icon: 'sparkles', color: 'cyan', unlocked: true, progress: 15000, maxProgress: 20000 },
 ];
 
 export default function Hero() {

@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link, useLocation } from 'react-router';
 import { 
@@ -33,7 +34,8 @@ const SidebarItem: React.FC<{ to: string; icon: any; label: string }> = ({ to, i
   );
 };
 
-export default function DashboardLayout({ children }: { children: React.ReactNode }) {
+// Fix: Explicitly use React.FC and make children optional to resolve "Property 'children' is missing" errors in consuming pages
+const DashboardLayout: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
   const { user, logout } = useAuth();
 
   return (
@@ -108,3 +110,5 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
     </div>
   );
 }
+
+export default DashboardLayout;

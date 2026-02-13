@@ -2,7 +2,8 @@
 import { GoogleGenAI } from "@google/genai";
 import { Message } from "../types";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
+// Fix: Initialize GoogleGenAI with process.env.API_KEY directly as per requirements
+const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
 export const getGeminiResponse = async (prompt: string, history: Message[] = []) => {
   try {

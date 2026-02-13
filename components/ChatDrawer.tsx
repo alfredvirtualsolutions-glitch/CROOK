@@ -1,3 +1,4 @@
+
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageSquare, X, Send, Sparkles, User, Bot, Mic, MicOff, Volume2 } from 'lucide-react';
 import { getGeminiResponse } from '../services/geminiService';
@@ -76,7 +77,8 @@ const ChatDrawer: React.FC = () => {
 
   const startVoiceMode = async () => {
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
+      // Fix: Create GoogleGenAI instance right before use with process.env.API_KEY directly
+      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       
       audioContextRef.current = new (window.AudioContext || (window as any).webkitAudioContext)({ sampleRate: 24000 });
@@ -99,6 +101,7 @@ const ChatDrawer: React.FC = () => {
                 data: encode(new Uint8Array(int16.buffer)),
                 mimeType: 'audio/pcm;rate=16000',
               };
+              // Fix: Solely rely on sessionPromise resolves to send realtime input as per guidelines
               sessionPromise.then(session => session.sendRealtimeInput({ media: pcmBlob }));
             };
             source.connect(scriptProcessor);
