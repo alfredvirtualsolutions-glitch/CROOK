@@ -1,0 +1,7 @@
+{
+  "name": "Warm Mail - Elite Email Deliverability",
+  "description": "Premium email warm-up and deliverability analytics dashboard. Heat up your inbox and stay out of spam.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}

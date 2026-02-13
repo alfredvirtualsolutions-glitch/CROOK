@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warm Mail | Inbox Deliverability Core</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #020617;
+            color: white;
+            margin: 0;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* High-end grain overlay */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+            opacity: 0.05;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .card-glow:hover {
+            box-shadow: 0 0 30px -5px rgba(249, 115, 22, 0.3);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes bounce-subtle {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+        }
+
+        .animate-bounce-subtle {
+            animation: bounce-subtle 2s ease-in-out infinite;
+        }
+
+        .warm-gradient {
+            background: radial-gradient(circle at top right, rgba(249, 115, 22, 0.12) 0%, transparent 60%),
+                        radial-gradient(circle at bottom left, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
+        }
+        
+        /* Achievement Animations */
+        @keyframes achievement-pop {
+            0% { transform: scale(0.5); opacity: 0; }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .animate-achievement-pop {
+            animation: achievement-pop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+        
+        @keyframes slide-in-right {
+            0% { transform: translateX(100%); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
+        }
+        .animate-slide-in-right {
+            animation: slide-in-right 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+        }
+
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); opacity: 0.5; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+        .animate-pulse-ring {
+            animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Selection Color */
+        ::selection {
+            background: rgba(249, 115, 22, 0.3);
+            color: white;
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@19.0.0",
+    "react-dom": "https://esm.sh/react-dom@19.0.0",
+    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
+    "react-router": "https://esm.sh/react-router@7.1.5?external=react,react-dom",
+    "lucide-react": "https://esm.sh/lucide-react@0.460.0?external=react",
+    "recharts": "https://esm.sh/recharts@2.13.3?external=react,react-dom",
+    "canvas-confetti": "https://esm.sh/canvas-confetti@1.9.3",
+    "@google/genai": "https://esm.sh/@google/genai@1.41.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/"
+  }
+}
+</script>
+</head>
+<body class="warm-gradient min-h-screen">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>
